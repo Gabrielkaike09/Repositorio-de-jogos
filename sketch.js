@@ -1,37 +1,37 @@
 let campoIdade;
-let campoFantasia;
-let campoAventura;
+let campoLuta;
+let campoAcão;
 
 function setup() {
   createCanvas(800, 400);
   createElement("h2", "Recomendador de jogos");
   createSpan("Sua idade:");
   campoIdade = createInput("5");
-  campoFantasia = createCheckbox("Gosta de fantasia?");
-  campoAventura = createCheckbox("Gosta de aventura?");
+  campoLuta = createCheckbox("Gosta de Luta?");
+  campoAcão = createCheckbox("Gosta de Ação?");
 }
 
 function draw() {
-  background("white");
+  background("rgb(255,255,255)");
   let idade = campoIdade.value();
-  let gostaDeFantasia = campoFantasia.checked();
-  let gostaDeAventura = campoAventura.checked();
-  let recomendacao = geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura);
+  let gostaDeLuta = campoLuta.checked();
+  let gostaDeAcão = campoAcão.checked();
+  let recomendacao = geraRecomendacao(idade, gostaDeLuta, gostaDeAcão);
 
-  fill(color(76, 0, 115));
+  fill(color(0, 0, 100));
   textAlign(CENTER, CENTER);
-  textSize(38);
+  textSize(200);
   text(recomendacao, width / 2, height / 2);
 }
 
-function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
+function geraRecomendacao(idade, gostaDeFantasia, gostaDeAcão) {
   if (idade >= 10) {
     if (idade >= 15) {
       return "Free Fire";
     } else {
       if (idade >= 12) {
         if(gostaDeFantasia || gostaDeAventura) {
-          return "Super Mario";          
+          return "Street Fighter";          
         } else{
          return "Among us";
         }
@@ -45,7 +45,7 @@ function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
     }
   } else {
     if (gostaDeFantasia) {
-      return "LEGO MARVEL";
+      return "UFC";
     } else {
       return "FIFA";
     }
